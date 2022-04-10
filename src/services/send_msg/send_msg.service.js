@@ -8,7 +8,7 @@ const postSendMsg = async (values) => {
     body: JSON.stringify(values),
   };
 
-  const fetchData = await fetch(`http://localhost:8080/sms`, requestOptions);
+  const fetchData = await fetch(`https://api-twilio-send-sms.herokuapp.com/sms`, requestOptions);
 
   const response = await fetchData.json();
   return response;

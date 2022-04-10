@@ -4,16 +4,25 @@ import { useState } from "react";
 import SendMsgService from "./services/send_msg/send_msg.service";
 
 function App() {
+  const [msg, setMsg] = useState('')
   const [values, setValues] = useState({
     to: "",
     msg: "",
   });
 
-  const handlerSubmit = (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
     console.log(values);
-    const response = SendMsgService.postSendMsg(values);
-    console.log(response)
+    const response = await SendMsgService.postSendMsg(values);
+    if(response?.is_successful){
+      setMsg('Mensaje enviado exitosamente!')
+    }else{
+      setMsg('No fue posible enviar el mensaje intente mas tarde!')
+    }
+    setValues({
+      to: "",
+      msg: "",
+    });
   };
 
   const handlerChange = (e) => {
@@ -36,6 +45,9 @@ function App() {
           <div className={"form-item"}>
             <label>Tu mensaje:</label>
             <textarea name="msg" className="textarea form-control" value={values.msg} onChange={(e)=>handlerChange(e)}/>
+          </div>
+          <div className={"form-item"}>
+            <span>{msg}</span>
           </div>
           <div className={"form-item"}>
             <input type={"submit"} value={"Enviar mensaje"} className='btn'/>
