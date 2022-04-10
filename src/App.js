@@ -40,11 +40,11 @@ function App() {
         <form onSubmit={(e) => handlerSubmit(e)} className={"form"}>
           <div className={"form-item"}>
             <label>El numero de telefono:</label>
-            <input type={"text"} name="to" className="form-control" value={values.to} onChange={(e)=>handlerChange(e)}/>
+            <input type={"text"} name="to" className="form-control" value={values.to} onChange={(e)=>handlerChange(e)} placeholder="+50375528789"/>
           </div>
           <div className={"form-item"}>
             <label>Tu mensaje:</label>
-            <textarea name="msg" className="textarea form-control" value={values.msg} onChange={(e)=>handlerChange(e)}/>
+            <textarea name="msg" className="textarea form-control" value={values.msg} onChange={(e)=>handlerChange(e)} placeholder="Escribe tu msg, maximo de 4000 caracteres!"/>
           </div>
           <div className={"form-item"}>
             <span>{msg}</span>
