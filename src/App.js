@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <div className="App-container">
-        <header className="App-header">Twillow SMS Client</header>
+        <header className="App-header">Twilio SMS Client</header>
         <form onSubmit={(e) => handlerSubmit(e)} className={"form"}>
           <div className={"form-item"}>
             <label>El numero de telefono:</label>
